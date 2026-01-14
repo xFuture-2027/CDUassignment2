@@ -60,7 +60,7 @@ def main():
         largest_range_stations = [(station,rnge,max(temps),min(temps))]
     elif rnge == max_range:
         largest_range_stations.append((station,rnge,max(temps),min(temps)))
-
+c
     # stability
     if len(temps)>1:
         station_stdevs[station] = statistics.stdev(temps)
