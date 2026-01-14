@@ -87,5 +87,7 @@ def main():
                 if sd == max_std:
                     f.write(f"Most Variable: Station{s}:Stdev {sd:.1f}°C\n")
             
+    print("Processing complete. Output files generated successfully.")
+
 if __name__ == '__main__':
     main()
