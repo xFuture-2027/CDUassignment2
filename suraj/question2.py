@@ -53,17 +53,17 @@ def main():
     for station,temps in station_temps.items():
         if not temps: continue
     
-    # Range
-    rnge = max(temps) - min(temps)
-    if rnge > max_range:
-        max_range = rnge
-        largest_range_stations = [(station,rnge,max(temps),min(temps))]
-    elif rnge == max_range:
-        largest_range_stations.append((station,rnge,max(temps),min(temps)))
-c
-    # stability
-    if len(temps)>1:
-        station_stdevs[station] = statistics.stdev(temps)
+    
+        # Range
+        rnge = max(temps) - min(temps)
+        if rnge > max_range:
+            max_range = rnge
+            largest_range_stations = [(station,rnge,max(temps),min(temps))]
+        elif rnge == max_range:
+            largest_range_stations.append((station,rnge,max(temps),min(temps)))
+        # stability
+        if len(temps)>1:
+            station_stdevs[station] = statistics.stdev(temps)
     
     with open('largest_temp_range_station.txt','w') as f:
         for s, r, mx, mn in largest_range_stations:
