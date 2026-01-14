@@ -1,6 +1,7 @@
 import glob
 import statistics
 import csv
+import os
 
 # season and corresponding months defined
 SEASONS ={
@@ -17,7 +18,9 @@ def main():
     station_temps = {}
 
     # read all the CSV files in the 'Temperatures' folder and perform the following tasks
-    for file_name in glob.glob('temperatures/*.csv'):
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    temp_dir = os.path.join(script_dir, 'temperatures')
+    for file_name in glob.glob(os.path.join(temp_dir, '*.csv')):
         with open(file_name,'r') as f:
             reader = csv.DictReader(f)
             for row in reader:
